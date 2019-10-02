@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,14 @@ namespace SNMP_Analyser_UI
         public SNMP_Info()
         {
             InitializeComponent();
+            try
+            {
+                string line;
+                StreamReader sr = new StreamReader("networkIPList.ini");
+                while ((line = sr.ReadLine()) != null)
+                    lbxIPList.Items.Add(line);
+            }
+            catch { }
         }
 
         private void btnAddIP_Click(object sender, EventArgs e)
