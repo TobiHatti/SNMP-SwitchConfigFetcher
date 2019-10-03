@@ -13,6 +13,7 @@ namespace SNMP_Analyser
     public class Switch
     {
         public IpAddress IPAddress { get; private set; } = new IpAddress("127.0.0.1");
+        public string Description { get; private set; } = "";
         public int Port { get; private set; } = 161;
         public string Community { get; private set; } = "public";
         public List<Interface> Interfaces { get; private set; } = new List<Interface>();
@@ -36,7 +37,7 @@ namespace SNMP_Analyser
             LoadVLANs();
             AssignVLANs();
 
-            
+            Description = SnmpClient.Get(OIDGet.SwitchDescription).Value;
         }
 
         public void LoadInterfaces()
@@ -184,6 +185,11 @@ namespace SNMP_Analyser
                 }
             }
             return ba;
+        }
+
+        public override string ToString()
+        {
+            return $"{IPAddress}\r\n{Description}";
         }
     }
 }

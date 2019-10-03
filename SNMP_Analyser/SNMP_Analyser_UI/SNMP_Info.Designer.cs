@@ -42,8 +42,16 @@
             this.lbxVLANS = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lbxInterfaces = new System.Windows.Forms.ListBox();
+            this.btnExportInterface = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnExportSwitch = new System.Windows.Forms.Button();
+            this.btnExportAll = new System.Windows.Forms.Button();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.sfdSave = new System.Windows.Forms.SaveFileDialog();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -124,6 +132,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.lbxPortInfo);
@@ -140,7 +149,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(230, 161);
+            this.label4.Location = new System.Drawing.Point(230, 150);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 13);
             this.label4.TabIndex = 5;
@@ -158,7 +167,7 @@
             // lbxPortInfo
             // 
             this.lbxPortInfo.FormattingEnabled = true;
-            this.lbxPortInfo.Location = new System.Drawing.Point(233, 177);
+            this.lbxPortInfo.Location = new System.Drawing.Point(233, 166);
             this.lbxPortInfo.Name = "lbxPortInfo";
             this.lbxPortInfo.Size = new System.Drawing.Size(174, 108);
             this.lbxPortInfo.TabIndex = 4;
@@ -189,6 +198,78 @@
             this.lbxInterfaces.TabIndex = 0;
             this.lbxInterfaces.SelectedIndexChanged += new System.EventHandler(this.lbxInterfaces_SelectedIndexChanged);
             // 
+            // btnExportInterface
+            // 
+            this.btnExportInterface.Location = new System.Drawing.Point(6, 108);
+            this.btnExportInterface.Name = "btnExportInterface";
+            this.btnExportInterface.Size = new System.Drawing.Size(162, 23);
+            this.btnExportInterface.TabIndex = 6;
+            this.btnExportInterface.Text = "Save Selected Interface";
+            this.btnExportInterface.UseVisualStyleBackColor = true;
+            this.btnExportInterface.Click += new System.EventHandler(this.btnExportInterface_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.radioButton2);
+            this.groupBox3.Controls.Add(this.radioButton1);
+            this.groupBox3.Controls.Add(this.btnExportAll);
+            this.groupBox3.Controls.Add(this.btnExportSwitch);
+            this.groupBox3.Controls.Add(this.btnExportInterface);
+            this.groupBox3.Location = new System.Drawing.Point(233, 280);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(174, 137);
+            this.groupBox3.TabIndex = 7;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Export Results";
+            // 
+            // btnExportSwitch
+            // 
+            this.btnExportSwitch.Location = new System.Drawing.Point(6, 79);
+            this.btnExportSwitch.Name = "btnExportSwitch";
+            this.btnExportSwitch.Size = new System.Drawing.Size(162, 23);
+            this.btnExportSwitch.TabIndex = 6;
+            this.btnExportSwitch.Text = "Save Selected Switch";
+            this.btnExportSwitch.UseVisualStyleBackColor = true;
+            this.btnExportSwitch.Click += new System.EventHandler(this.btnExportSwitch_Click);
+            // 
+            // btnExportAll
+            // 
+            this.btnExportAll.Location = new System.Drawing.Point(6, 50);
+            this.btnExportAll.Name = "btnExportAll";
+            this.btnExportAll.Size = new System.Drawing.Size(162, 23);
+            this.btnExportAll.TabIndex = 6;
+            this.btnExportAll.Text = "Save All Switches";
+            this.btnExportAll.UseVisualStyleBackColor = true;
+            this.btnExportAll.Click += new System.EventHandler(this.btnExportAll_Click);
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(20, 19);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(56, 17);
+            this.radioButton1.TabIndex = 7;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Simple";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(90, 19);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(69, 17);
+            this.radioButton2.TabIndex = 8;
+            this.radioButton2.Text = "Complete";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // sfdSave
+            // 
+            this.sfdSave.DefaultExt = "txt";
+            this.sfdSave.FileName = "SNMP-Result.txt";
+            this.sfdSave.Filter = "Text-File|*.txt|PDF-File|*.pdf|Configuration-File|*.ini";
+            // 
             // SNMP_Info
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,6 +284,8 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -223,6 +306,13 @@
         private System.Windows.Forms.ListBox lbxVLANS;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox lbxPortInfo;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button btnExportAll;
+        private System.Windows.Forms.Button btnExportSwitch;
+        private System.Windows.Forms.Button btnExportInterface;
+        private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.SaveFileDialog sfdSave;
     }
 }
 

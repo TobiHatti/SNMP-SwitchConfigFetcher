@@ -100,5 +100,83 @@ namespace SNMP_Analyser_UI
                 MessageBox.Show("Could not connect to Host!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void btnExportAll_Click(object sender, EventArgs e)
+        {
+            ExportResults("All");
+        }
+
+        private void btnExportSwitch_Click(object sender, EventArgs e)
+        {
+            ExportResults("Switch");
+        }
+
+        private void btnExportInterface_Click(object sender, EventArgs e)
+        {
+            ExportResults("Interface");
+        }
+
+        private void ExportResults(string pType)
+        {
+            if(sfdSave.ShowDialog() == DialogResult.OK)
+            {
+                string extension = Path.GetExtension(sfdSave.FileName);
+
+                switch(extension.ToLower())
+                {
+                    case ".txt":
+                        StreamWriter sw = new StreamWriter(sfdSave.FileName);
+
+
+                        switch(pType)
+                        {
+                            case "All":
+                                Switch tmpSwitch;
+                                foreach (object ip in lbxIPList.Items)
+                                {
+                                    tmpSwitch = new Switch(ip.ToString());
+                                    sw.WriteLine("============================");
+                                    sw.WriteLine($"Switch: {tmpSwitch.ToString()}");
+                                    sw.WriteLine("============================\r\n");
+                                    foreach (Interface ifc in tmpSwitch.Interfaces)
+                                        sw.WriteLine("Interface: " + ifc.ToString());
+                                    sw.WriteLine("\r\n");
+                                }
+                                break;
+                            case "Switch":
+                                sw.WriteLine("============================");
+                                sw.WriteLine($"Switch: {selectedSwitch.ToString()}");
+                                sw.WriteLine("============================\r\n");
+                                foreach (Interface ifc in selectedSwitch.Interfaces)
+                                    sw.WriteLine("Interface: " + ifc.ToString());
+                                break;
+                            default:
+                                sw.WriteLine("============================");
+                                sw.WriteLine($"Switch: {selectedSwitch.ToString()}");
+                                sw.WriteLine("============================\r\n");
+                                foreach(Interface ifc in selectedSwitch.Interfaces)
+                                    if (lbxInterfaces.Text == ifc.Description)
+                                    {
+                                        sw.WriteLine("Interface: " + ifc.ToString());
+                                        foreach (PortTaggingInfo portTI in ifc.VLANTagInfo)
+                                            lbxVLANS.Items.Add(portTI.ToString());
+                                    }
+                                break;
+                        }
+
+                        sw.Close();
+                        break;
+                    case ".ini":
+                        MessageBox.Show("Not supported yet!");
+                        break;
+                    case ".pdf":
+                        MessageBox.Show("Not supported yet!");
+                        break;
+                    default:
+                        MessageBox.Show($"{extension}-Files are not Supported.");
+                        break;
+                }
+            }
+        }
     }
 }

@@ -31,7 +31,7 @@ namespace SNMP_Analyser
 
             foreach(PortTaggingInfo ti in VLANTagInfo)
             {
-                sb.AppendLine($"\t VLAN {ti.VLAN.Name} - {ti.TagType}");
+                sb.AppendLine($"\tVLAN {ti.VLAN.Name} - {ti.TagType}");
             }
 
             return sb.ToString();

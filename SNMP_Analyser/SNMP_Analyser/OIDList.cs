@@ -25,6 +25,7 @@ namespace SNMP_Analyser
 
     public class OIDGet
     {
+        public const string SwitchDescription       = "1.3.6.1.2.1.1.1.0";
         public const string InterfaceCount          = "1.3.6.1.2.1.2.1.0";
         
     }
