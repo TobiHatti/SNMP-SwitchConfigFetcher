@@ -55,6 +55,7 @@ namespace SNMP_Analyser_UI
         {
             lbxInterfaces.Items.Clear();
             lbxVLANS.Items.Clear();
+            lbxPortInfo.Items.Clear();
             try
             {
                 selectedSwitch = new Switch(lbxIPList.SelectedItem.ToString());
@@ -73,6 +74,7 @@ namespace SNMP_Analyser_UI
         private void lbxInterfaces_SelectedIndexChanged(object sender, EventArgs e)
         {
             lbxVLANS.Items.Clear();
+            lbxPortInfo.Items.Clear();
             try
             {
 
@@ -84,6 +86,12 @@ namespace SNMP_Analyser_UI
                         {
                             lbxVLANS.Items.Add(portTI.ToString());
                         }
+
+                        lbxPortInfo.Items.Add(string.Format("Description: {0}", selectedSwitch.Interfaces[i].Description));
+                        lbxPortInfo.Items.Add(string.Format("Port-Index: {0}", selectedSwitch.Interfaces[i].Index));
+                        lbxPortInfo.Items.Add(string.Format("Port-Type-ID: {0}", selectedSwitch.Interfaces[i].Type));
+                        lbxPortInfo.Items.Add(string.Format("Link Established: {0}", selectedSwitch.Interfaces[i].IsUp));
+                        lbxPortInfo.Items.Add(string.Format("Port Speed: {0} MBit", selectedSwitch.Interfaces[i].Speed / 1000000));
                     }
                 }
             }

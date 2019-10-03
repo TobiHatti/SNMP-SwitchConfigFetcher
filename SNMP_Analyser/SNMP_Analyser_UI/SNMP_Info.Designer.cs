@@ -74,7 +74,7 @@
             this.btnGetConfig.Name = "btnGetConfig";
             this.btnGetConfig.Size = new System.Drawing.Size(159, 37);
             this.btnGetConfig.TabIndex = 4;
-            this.btnGetConfig.Text = "Get Config";
+            this.btnGetConfig.Text = "Reload Config";
             this.btnGetConfig.UseVisualStyleBackColor = true;
             this.btnGetConfig.Click += new System.EventHandler(this.btnGetConfig_Click);
             // 
