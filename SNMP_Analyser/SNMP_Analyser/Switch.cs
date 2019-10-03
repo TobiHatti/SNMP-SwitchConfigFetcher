@@ -6,6 +6,7 @@ using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SNMP_Analyser
 {
@@ -86,6 +87,9 @@ namespace SNMP_Analyser
             List<object> notExcludedBits = new List<object>();
             List<object> untaggedBits = new List<object>();
 
+            bool notExcludedBit;
+            bool untaggedBit;
+
             // Cycle through all vlans
             for(int i = 0; i < VLANs.Count; i++)
             {
@@ -104,14 +108,20 @@ namespace SNMP_Analyser
                       // Add vlan-tagging-info to interfaces
                     for (int k = 0; k < Interfaces.Count; k++)
                     {
-                        if (!(bool)notExcludedBits[Interfaces[k].Index - 1]) Interfaces[k].VLANTagInfo.Add(new PortTaggingInfo(VLANs[i], TagType.Excluded));
-                        else if ((bool)untaggedBits[Interfaces[k].Index - 1]) Interfaces[k].VLANTagInfo.Add(new PortTaggingInfo(VLANs[i], TagType.Untagged));
+                        if (k >= notExcludedBits.Count) notExcludedBit = false;
+                        else notExcludedBit = (bool)notExcludedBits[Interfaces[k].Index - 1];
+
+                        if (k >= untaggedBits.Count) untaggedBit = false;
+                        else untaggedBit = (bool)untaggedBits[Interfaces[k].Index - 1];
+
+                        if (!notExcludedBit) Interfaces[k].VLANTagInfo.Add(new PortTaggingInfo(VLANs[i], TagType.Excluded));
+                        else if (untaggedBit) Interfaces[k].VLANTagInfo.Add(new PortTaggingInfo(VLANs[i], TagType.Untagged));
                         else Interfaces[k].VLANTagInfo.Add(new PortTaggingInfo(VLANs[i], TagType.Tagged));
                     }
                 }
                 catch(Exception ex)
                 {
-                    Console.WriteLine("Error: Could not bind VLAN to Interface - Wrong Tagging-Info Format!");
+                    MessageBox.Show("At least 1 error occured whilst trying to Parse SNMP-Data. Some Data may be incorrect!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 
             }
@@ -121,6 +131,21 @@ namespace SNMP_Analyser
         {
             if (hexData == null)
                 return null;
+
+            byte[] bya;
+            string hexString;
+
+            if (hexData.Contains("\0"))
+            {
+                hexData = hexData.Replace("\0", "");
+                // Convert string to Hex
+
+                bya = Encoding.Default.GetBytes(hexData);
+                hexString = BitConverter.ToString(bya);
+                hexData = hexString.Replace("-", "");
+
+                MessageBox.Show("SMPT-Data seems to be corrupted.\r\n Try Parsing...\r\n\r\nNote: Some Results may not be correct.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
             hexData = hexData.Replace(" ", "");
 
