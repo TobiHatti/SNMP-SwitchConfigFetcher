@@ -82,12 +82,16 @@ namespace SNMP_Analyser
         {
             // Get vlan-tagging-info from SNMP
             SNMPResultSet[] rsNotExcluded = SnmpClient.Walk(OIDWalk.VLANListNotExcluded);
+            SNMPResultSet[] rsNotExcludedStat = SnmpClient.Walk(OIDWalk.VLANListNotExcludedStat);
             SNMPResultSet[] rsUntagged = SnmpClient.Walk(OIDWalk.VLANListUntagged);
 
-            List<object> notExcludedBits = new List<object>();
-            List<object> untaggedBits = new List<object>();
+            List<object> notExcludedBits;
+            List<object> notExcludedStatBits;
+            List<object> untaggedBits;
+            
 
             bool notExcludedBit;
+            bool notExcludedStatBit;
             bool untaggedBit;
 
             // Cycle through all vlans
@@ -95,6 +99,7 @@ namespace SNMP_Analyser
             {
                 // Convert tagging-info
                 notExcludedBits = new List<object>();
+                notExcludedStatBits = new List<object>();
                 untaggedBits = new List<object>();
 
                 try
@@ -102,12 +107,18 @@ namespace SNMP_Analyser
                     foreach (object bit in ConvertHexToBit(rsNotExcluded[i].Value))
                         notExcludedBits.Add(bit);
 
+                    foreach (object bit in ConvertHexToBit(rsNotExcludedStat[i].Value))
+                        notExcludedStatBits.Add(bit);
+
                     foreach (object bit in ConvertHexToBit(rsUntagged[i].Value))
                         untaggedBits.Add(bit);
 
                       // Add vlan-tagging-info to interfaces
                     for (int k = 0; k < Interfaces.Count; k++)
                     {
+                        if ((bool)notExcludedBits[Interfaces[k].Index - 1] != (bool)notExcludedStatBits[Interfaces[k].Index - 1])
+                            MessageBox.Show("The SNMP-Data returns faulty results. Some data may be incorrect!");
+
                         if (k >= notExcludedBits.Count) notExcludedBit = false;
                         else notExcludedBit = (bool)notExcludedBits[Interfaces[k].Index - 1];
 
@@ -121,7 +132,7 @@ namespace SNMP_Analyser
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show("At least 1 error occured whilst trying to Parse SNMP-Data. Some Data may be incorrect!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("At least 1 error occured whilst trying to Parse SNMP-Data. Some data may be incorrect!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 
             }
