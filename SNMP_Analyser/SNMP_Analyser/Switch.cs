@@ -19,6 +19,9 @@ namespace SNMP_Analyser
         public List<VLAN> VLANs { get; private set; } = new List<VLAN>();
         public SwitchConfig Config { get; private set; } = new SwitchConfig();
 
+        private bool error1Displayed = false;
+        private bool error2Displayed = false;
+
         public SNMP SnmpClient { get; set; } = null;
 
         public Switch(string pIPAddress, string pCommunity = "public", int pPort = 161)
@@ -32,6 +35,8 @@ namespace SNMP_Analyser
             LoadInterfaces();
             LoadVLANs();
             AssignVLANs();
+
+            
         }
 
         public void LoadInterfaces()
@@ -132,7 +137,12 @@ namespace SNMP_Analyser
                 }
                 catch(Exception ex)
                 {
-                    MessageBox.Show("At least 1 error occured whilst trying to Parse SNMP-Data. Some data may be incorrect!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    if(!error1Displayed)
+                    {
+                        error1Displayed = true;
+                        MessageBox.Show("At least 1 error occured whilst trying to Parse SNMP-Data. Some data may be incorrect!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    
                 }
                 
             }
@@ -155,7 +165,11 @@ namespace SNMP_Analyser
                 hexString = BitConverter.ToString(bya);
                 hexData = hexString.Replace("-", "");
 
-                MessageBox.Show("SMPT-Data seems to be corrupted.\r\n Try Parsing...\r\n\r\nNote: Some Results may not be correct.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (!error2Displayed)
+                {
+                    error2Displayed = true;
+                    MessageBox.Show("SMPT-Data seems to be corrupted.\r\n Try Parsing...\r\n\r\nNote: Some Results may not be correct.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
 
             hexData = hexData.Replace(" ", "");
