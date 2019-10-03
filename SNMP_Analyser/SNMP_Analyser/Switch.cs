@@ -169,7 +169,7 @@ namespace SNMP_Analyser
                 if (!error2Displayed)
                 {
                     error2Displayed = true;
-                    MessageBox.Show("SMPT-Data seems to be corrupted.\r\n Try Parsing...\r\n\r\nNote: Some Results may not be correct.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("SNMP-Data seems to be corrupted.\r\n Try Parsing...\r\n\r\nNote: Some Results may not be correct.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
 

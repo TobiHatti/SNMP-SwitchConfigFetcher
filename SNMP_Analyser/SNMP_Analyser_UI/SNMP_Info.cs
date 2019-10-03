@@ -53,6 +53,8 @@ namespace SNMP_Analyser_UI
 
         private void GetConfig()
         {
+            
+
             lbxInterfaces.Items.Clear();
             lbxVLANS.Items.Clear();
             lbxPortInfo.Items.Clear();
@@ -64,6 +66,8 @@ namespace SNMP_Analyser_UI
                 {
                     lbxInterfaces.Items.Add(ifc.Description);
                 }
+
+                lblSwitch.Text = "Switch: " + selectedSwitch.Description;
             }
             catch (Exception ex)
             {

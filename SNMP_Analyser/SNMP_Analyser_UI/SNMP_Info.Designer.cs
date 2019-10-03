@@ -49,6 +49,7 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.sfdSave = new System.Windows.Forms.SaveFileDialog();
+            this.lblSwitch = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -132,6 +133,7 @@
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.Controls.Add(this.lblSwitch);
             this.groupBox2.Controls.Add(this.groupBox3);
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.label3);
@@ -149,7 +151,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(230, 150);
+            this.label4.Location = new System.Drawing.Point(230, 163);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 13);
             this.label4.TabIndex = 5;
@@ -158,7 +160,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(230, 20);
+            this.label3.Location = new System.Drawing.Point(230, 33);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 13);
             this.label3.TabIndex = 5;
@@ -167,15 +169,15 @@
             // lbxPortInfo
             // 
             this.lbxPortInfo.FormattingEnabled = true;
-            this.lbxPortInfo.Location = new System.Drawing.Point(233, 166);
+            this.lbxPortInfo.Location = new System.Drawing.Point(233, 179);
             this.lbxPortInfo.Name = "lbxPortInfo";
-            this.lbxPortInfo.Size = new System.Drawing.Size(174, 108);
+            this.lbxPortInfo.Size = new System.Drawing.Size(174, 95);
             this.lbxPortInfo.TabIndex = 4;
             // 
             // lbxVLANS
             // 
             this.lbxVLANS.FormattingEnabled = true;
-            this.lbxVLANS.Location = new System.Drawing.Point(233, 36);
+            this.lbxVLANS.Location = new System.Drawing.Point(233, 49);
             this.lbxVLANS.Name = "lbxVLANS";
             this.lbxVLANS.Size = new System.Drawing.Size(174, 108);
             this.lbxVLANS.TabIndex = 4;
@@ -183,7 +185,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 20);
+            this.label2.Location = new System.Drawing.Point(3, 33);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 3;
@@ -192,9 +194,9 @@
             // lbxInterfaces
             // 
             this.lbxInterfaces.FormattingEnabled = true;
-            this.lbxInterfaces.Location = new System.Drawing.Point(6, 36);
+            this.lbxInterfaces.Location = new System.Drawing.Point(6, 49);
             this.lbxInterfaces.Name = "lbxInterfaces";
-            this.lbxInterfaces.Size = new System.Drawing.Size(221, 381);
+            this.lbxInterfaces.Size = new System.Drawing.Size(221, 368);
             this.lbxInterfaces.TabIndex = 0;
             this.lbxInterfaces.SelectedIndexChanged += new System.EventHandler(this.lbxInterfaces_SelectedIndexChanged);
             // 
@@ -245,22 +247,24 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
+            this.radioButton1.Enabled = false;
             this.radioButton1.Location = new System.Drawing.Point(20, 19);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(56, 17);
             this.radioButton1.TabIndex = 7;
-            this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Simple";
             this.radioButton1.UseVisualStyleBackColor = true;
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
+            this.radioButton2.Checked = true;
+            this.radioButton2.Enabled = false;
             this.radioButton2.Location = new System.Drawing.Point(90, 19);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(69, 17);
             this.radioButton2.TabIndex = 8;
+            this.radioButton2.TabStop = true;
             this.radioButton2.Text = "Complete";
             this.radioButton2.UseVisualStyleBackColor = true;
             // 
@@ -269,6 +273,15 @@
             this.sfdSave.DefaultExt = "txt";
             this.sfdSave.FileName = "SNMP-Result.txt";
             this.sfdSave.Filter = "Text-File|*.txt|PDF-File|*.pdf|Configuration-File|*.ini";
+            // 
+            // lblSwitch
+            // 
+            this.lblSwitch.AutoEllipsis = true;
+            this.lblSwitch.Location = new System.Drawing.Point(3, 16);
+            this.lblSwitch.Name = "lblSwitch";
+            this.lblSwitch.Size = new System.Drawing.Size(404, 17);
+            this.lblSwitch.TabIndex = 8;
+            this.lblSwitch.Text = "Switch:";
             // 
             // SNMP_Info
             // 
@@ -313,6 +326,7 @@
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.SaveFileDialog sfdSave;
+        private System.Windows.Forms.Label lblSwitch;
     }
 }
 

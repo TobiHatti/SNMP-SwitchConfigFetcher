@@ -1,0 +1,14 @@
+C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser_UI\bin\Release\SNMP_Analyser_UI.exe.config
+C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser_UI\bin\Release\SNMP_Analyser_UI.exe
+C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser_UI\bin\Release\SNMP_Analyser_UI.pdb
+C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser_UI\bin\Release\SNMP_Analyser.exe
+C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser_UI\bin\Release\SnmpSharpNet.dll
+C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser_UI\bin\Release\SNMP_Analyser.pdb
+C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser_UI\bin\Release\SNMP_Analyser.exe.config
+C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser_UI\obj\Release\SNMP_Analyser_UI.csprojAssemblyReference.cache
+C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser_UI\obj\Release\SNMP_Analyser_UI.SNMP_Info.resources
+C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser_UI\obj\Release\SNMP_Analyser_UI.Properties.Resources.resources
+C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser_UI\obj\Release\SNMP_Analyser_UI.csproj.GenerateResource.cache
+C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser_UI\obj\Release\SNMP_Analyser_UI.csproj.CopyComplete
+C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser_UI\obj\Release\SNMP_Analyser_UI.exe
+C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser_UI\obj\Release\SNMP_Analyser_UI.pdb
