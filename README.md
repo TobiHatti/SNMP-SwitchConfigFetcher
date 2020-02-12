@@ -1,4 +1,4 @@
-<img align="right" width="80" height="80" src="https://github.com/TobiHatti/API-2-OOP/blob/master/API2OOP_UWP/Assets/StoreLogo.scale-400.png">
+<img align="right" width="80" height="80" src="https://github.com/TobiHatti/SNMP-SwitchConfigFetcher/blob/master/SNMP_Analyser/SNMP_Analyser_UI/SNMPSCF.png">
 
 # SNMP-SwitchConfigFetcher
 
