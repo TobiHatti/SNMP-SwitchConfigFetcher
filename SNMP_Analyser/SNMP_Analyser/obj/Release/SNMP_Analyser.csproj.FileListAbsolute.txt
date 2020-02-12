@@ -2,7 +2,6 @@ C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP
 C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser\bin\Release\SNMP_Analyser.exe
 C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser\bin\Release\SNMP_Analyser.pdb
 C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser\bin\Release\SnmpSharpNet.dll
-C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser\obj\Release\SNMP_Analyser.csprojAssemblyReference.cache
 C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser\obj\Release\SNMP_Analyser.csproj.CopyComplete
 C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser\obj\Release\SNMP_Analyser.exe
 C:\Users\zivi\Desktop\Projects (GIT)\SNMP_SwitchConfigFetcher\SNMP_Analyser\SNMP_Analyser\obj\Release\SNMP_Analyser.pdb
