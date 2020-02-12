@@ -14,17 +14,28 @@ namespace SNMP_Analyser_UI
 {
     public partial class SNMP_Info : Form
     {
-        Switch selectedSwitch = null;
+        private Switch selectedSwitch = null;
+        private string IniFile = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), @"SNMP-SCF\networkIPList.ini");
 
         public SNMP_Info()
         {
             InitializeComponent();
             try
             {
+                if (!File.Exists(IniFile))
+                {
+                    Directory.CreateDirectory(Path.GetDirectoryName(IniFile));
+                    using (StreamWriter sw = new StreamWriter(IniFile))
+                    {
+                        sw.Close();
+                    }
+                }
+
                 string line;
-                StreamReader sr = new StreamReader("networkIPList.ini");
+                StreamReader sr = new StreamReader(IniFile);
                 while ((line = sr.ReadLine()) != null)
                     lbxIPList.Items.Add(line);
+                sr.Close();
             }
             catch { }
         }
@@ -32,13 +43,38 @@ namespace SNMP_Analyser_UI
         private void btnAddIP_Click(object sender, EventArgs e)
         {
             lbxIPList.Items.Add(txbIPAddress.Text);
+            
+            using(StreamWriter sw = new StreamWriter(IniFile, true))
+            {
+                sw.WriteLine(txbIPAddress.Text);
+                sw.Close();
+            }
             txbIPAddress.Text = "";
         }
 
         private void btnRemoveIP_Click(object sender, EventArgs e)
         {
-            if(lbxIPList.SelectedIndex != -1)
+            if (lbxIPList.SelectedIndex != -1)
+            {
+
+                using (StreamReader sr = new StreamReader(IniFile))
+                {
+                    using (StreamWriter sw = new StreamWriter(IniFile + "tmp"))
+                    {
+                        string line;
+                        while ((line = sr.ReadLine()) != null)
+                            if (line != lbxIPList.SelectedItem.ToString())
+                                sw.WriteLine(line);
+                        sw.Close();
+                    }
+                    sr.Close();
+                }
+
                 lbxIPList.Items.RemoveAt(lbxIPList.SelectedIndex);
+
+                File.Delete(IniFile);
+                File.Move(IniFile + "tmp", IniFile);
+            }
         }
 
         private void btnGetConfig_Click(object sender, EventArgs e)
@@ -46,9 +82,14 @@ namespace SNMP_Analyser_UI
             GetConfig();
         }
 
-        private void lbxIPList_SelectedIndexChanged(object sender, EventArgs e)
+        private void lbxIPList_DoubleClick(object sender, EventArgs e)
         {
             GetConfig();
+        }
+
+        private void lbxIPList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
 
         private void GetConfig()
@@ -74,6 +115,8 @@ namespace SNMP_Analyser_UI
                 MessageBox.Show("Could not connect to Host!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        
 
         private void lbxInterfaces_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -182,5 +225,7 @@ namespace SNMP_Analyser_UI
                 }
             }
         }
+
+        
     }
 }
