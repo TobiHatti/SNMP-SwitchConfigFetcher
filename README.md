@@ -9,4 +9,9 @@
 [![GitHub issues](https://img.shields.io/github/issues-raw/TobiHatti/SNMP-SwitchConfigFetcher)](https://github.com/TobiHatti/SNMP-SwitchConfigFetcher/issues)
 [![GitHub language count](https://img.shields.io/github/languages/count/TobiHatti/SNMP-SwitchConfigFetcher)](https://github.com/TobiHatti/SNMP-SwitchConfigFetcher)
 
-Tool for fetching Interface and VLAN-Informations via the SNMP-Protocol for managed Switches
+![image](https://github.com/TobiHatti/SNMP-SwitchConfigFetcher/blob/master/ProductImages/MainWindow.jpg)
+
+The SNMP-SCF (Simple-Network-Management-Protocol Switch-Config-Fetcher) is a simple tool to collect Port- and VLAN-Informations from a switch over the SNMP-Protocol.
+
+## Downloads:
+Get the latest release [here](https://github.com/TobiHatti/SNMP-SwitchConfigFetcher/releases)
