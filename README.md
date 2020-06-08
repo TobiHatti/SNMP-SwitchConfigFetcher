@@ -1,4 +1,4 @@
-<img align="right" width="80" height="80" src="https://github.com/TobiHatti/SNMP-SwitchConfigFetcher/blob/master/SNMP_Analyser/SNMP_Analyser_UI/SNMPSCF.png">
+<img align="right" width="80" height="80" data-rmimg src="https://endev.at/content/projects/SNMP-SCF/SNMPSCF_Logo_128.png">
 
 # SNMP-SwitchConfigFetcher
 
@@ -9,9 +9,11 @@
 [![GitHub issues](https://img.shields.io/github/issues-raw/TobiHatti/SNMP-SwitchConfigFetcher)](https://github.com/TobiHatti/SNMP-SwitchConfigFetcher/issues)
 [![GitHub language count](https://img.shields.io/github/languages/count/TobiHatti/SNMP-SwitchConfigFetcher)](https://github.com/TobiHatti/SNMP-SwitchConfigFetcher)
 
-![image](https://github.com/TobiHatti/SNMP-SwitchConfigFetcher/blob/master/ProductImages/MainWindow.jpg)
+![image](https://endev.at/content/projects/SNMP-SCF/SNMPSCF_Banner_1080.png)
 
 The SNMP-SCF (Simple-Network-Management-Protocol Switch-Config-Fetcher) is a simple tool to collect Port- and VLAN-Informations from a switch over the SNMP-Protocol.
+
+![image](https://endev.at/content/projects/SNMP-SCF/projectImages/MainWindow.jpg)
 
 ## Downloads:
 Get the latest release [here](https://github.com/TobiHatti/SNMP-SwitchConfigFetcher/releases)
